@@ -1,20 +1,21 @@
 public class ClienteB extends Cliente {
 
-    private static double desconto;
-    private static int qtdDesconto;
+    private double desconto;
+    private int qtdDesconto;
 
     public ClienteB() {
-        desconto = 0.5; // Desconto de 50%
-        qtdDesconto = 0; // Inicializando quantidade de descontos
+        this.desconto = 0.05; // Desconto de 5%
+        this.qtdDesconto = 0; // Inicializando quantidade de descontos
         limite = 5000; // Limite inicial
     }
 
     @Override
     public double calcularDesconto(double valorCompra) {
         double descontoAplicado = 0;
-        if (qtdDesconto > 0) {
-            descontoAplicado = valorCompra * desconto;
-            System.out.println("Desconto aplicado: " + descontoAplicado);
+        if (valorCompra >= 1000) { // Condição para desconto
+            descontoAplicado = valorCompra * desconto; // Calcular desconto
+            qtdDesconto++; // Incrementar a quantidade de descontos
+            System.out.println("Cliente B - Desconto aplicado: " + descontoAplicado);
         }
         return descontoAplicado;
     }

@@ -12,16 +12,23 @@ public class ClienteA extends Cliente {
     @Override
     public double calcularDesconto(double valorCompra) {
         double descontoAplicado = 0;
-        if (qtdDesconto > 0) {
-            descontoAplicado = valorCompra * desconto;
+        if (valorCompra >= 2000) { // Condição para desconto
+            descontoAplicado = valorCompra * desconto; // Calcular desconto
+            qtdDesconto++; // Incrementar a quantidade de descontos
             System.out.println("Cliente A - Desconto aplicado: " + descontoAplicado);
         }
         return descontoAplicado;
     }
 
     @Override
-    public void aumentarLimite(double valorAumento) {
-        limite += 500; // Aumenta o limite em 500
-        System.out.println("Cliente A - Limite aumentado para: " + limite);
+    public void aumentarLimite(double valorCompra) {
+        if (valorCompra >= 5000) {
+            limite += 500; // Aumenta o limite em 500
+            System.out.println("Cliente A - Limite aumentado para: " + limite);
+        }
+    }
+
+    public int getQtdDesconto() {
+        return qtdDesconto; // Adicionando um método para acessar qtdDesconto
     }
 }

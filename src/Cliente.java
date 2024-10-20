@@ -28,7 +28,6 @@ public class Cliente {
     }
 
     public double calcularDesconto(double valorCompra) {
-        System.out.println("Desconto aplicado:");
         return 0; // Retorne 0 ou o valor do desconto se for necessário
     }
 
